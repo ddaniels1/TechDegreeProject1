@@ -40,7 +40,7 @@ let player18: [String: String] = ["name": "Herschel Krustofski", "height" : "45.
 var players: [[String: String]] = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18]
 
     
-
+// Function to sort players
 
 func sortByExperience (players: [[String:String]]) -> (experienced: [[String:String]], inexperienced: [[String:String]]){
     var experienced: [[String:String]] = []
@@ -59,21 +59,30 @@ func sortByExperience (players: [[String:String]]) -> (experienced: [[String:Str
     return (experienced, inexperienced)
 }
 
+// collection of experienced and inexperienced players
 
 var playersByExperience = (sortByExperience(players: players))
 
-//print(playersByExperience.experienced)
+// Make arrays of experienced and inexperienced players
+
+var experiencedPlayers = playersByExperience.experienced
+var inexperiencedPlayers = playersByExperience.inexperienced
+
+for player in experiencedPlayers{
+    print(player["name"]!)
+}
 //print(playersByExperience.inexperienced)
+
 var teamSharks: [[String:String]] = []
 var teamDragons: [[String:String]] = []
 var teamRaptors: [[String:String]] = []
 
-func sortTeams(byExperience: [[String:String]]) -> (teamSharks:[[String:String]], teamDragons: [[String:String]], teamRaptors: [[String:String]]){
+func sortTeams(experiencedPlayers: [[String:String]], inexperiencedPlayers: [[String:String]]) -> (teamSharks:[[String:String]], teamDragons: [[String:String]], teamRaptors: [[String:String]]){
     var teamSharks: [[String:String]] = []
     var teamDragons: [[String:String]] = []
     var teamRaptors: [[String:String]] = []
     
-    for player in playersByExperience.experienced {
+    for player in experiencedPlayers {
         teamSharks.append(player)
         teamDragons.append(player)
         teamRaptors.append(player)
@@ -87,12 +96,6 @@ func sortTeams(byExperience: [[String:String]]) -> (teamSharks:[[String:String]]
 
 
 
-for player in playersByExperience.experienced {
-    if player {
-           teamSharks.append(player)
-    }
-        
-    
-}
 
-print(sortTeams(byExperience: playersByExperience.experienced))
+
+
