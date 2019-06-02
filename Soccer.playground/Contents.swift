@@ -65,11 +65,13 @@ var playersByExperience = (sortByExperience(players: players))
 
 // Make arrays of experienced and inexperienced players
 
-var experiencedPlayers = playersByExperience.experienced
-var inexperiencedPlayers = playersByExperience.inexperienced
+let experiencedPlayers = playersByExperience.experienced
+let inexperiencedPlayers = playersByExperience.inexperienced
 
-for player in experiencedPlayers{
-    print(player["name"]!)
+for player in experiencedPlayers  {
+    let firstExperierncedPlayer = experiencedPlayers[1]
+    print(player)
+   // print(player["name"]!)
 }
 //print(playersByExperience.inexperienced)
 
