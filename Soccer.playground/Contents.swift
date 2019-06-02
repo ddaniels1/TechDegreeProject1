@@ -68,34 +68,44 @@ var playersByExperience = (sortByExperience(players: players))
 var experiencedPlayers = playersByExperience.experienced
 var inexperiencedPlayers = playersByExperience.inexperienced
 
-for player in experiencedPlayers{
-    print(player["name"]!)
-}
-//print(playersByExperience.inexperienced)
 
-var teamSharks: [[String:String]] = []
-var teamDragons: [[String:String]] = []
-var teamRaptors: [[String:String]] = []
+// Function to sort players in to teams
+func sortTeams(experiencedPlayers: [[String:String]], inexperiencedPlayers: [[String:String]]) -> (teamSharks: [String : String], teamDragons: [String : String], teamRaptors: [String : String])
+{
 
-func sortTeams(experiencedPlayers: [[String:String]], inexperiencedPlayers: [[String:String]]) -> (teamSharks:[[String:String]], teamDragons: [[String:String]], teamRaptors: [[String:String]]){
-    var teamSharks: [[String:String]] = []
-    var teamDragons: [[String:String]] = []
-    var teamRaptors: [[String:String]] = []
-    
-    for player in experiencedPlayers {
-        teamSharks.append(player)
-        teamDragons.append(player)
-        teamRaptors.append(player)
+    var teamDragons: [[String: String]] = []
+    var teamSharks: [[String: String]] = []
+    var teamRaptors: [[String: String]] = []
+
+    for player in 0..<experiencedPlayers {
         
     }
+    // calculates the number of experienced players that should be on each team
+    
+    //let experiencedPlayersPerTeam = experiencedPlayers.count/3
+    // calculates the number of inexperienced players that should be on each team
+    //let inexeperiencedPlayersPerTeam = inexperiencedPlayers.count/3
+
+
+    // distributes the experienced and inexperienced players evenly to each team
+
+   // let teamSharks = (experiencedPlayers[0...experiencedPlayersPerTeam - 1]) + (inexperiencedPlayers[0...inexeperiencedPlayersPerTeam-1])
+    //let teamDragons = (experiencedPlayers[experiencedPlayersPerTeam...(experiencedPlayersPerTeam * 2) - 1]) + (inexperiencedPlayers[inexeperiencedPlayersPerTeam...(inexeperiencedPlayersPerTeam * 2) - 1])
+    //let teamRaptors = experiencedPlayers[(experiencedPlayersPerTeam * 2)...(experiencedPlayersPerTeam * 3) - 1] + inexperiencedPlayers[(inexeperiencedPlayersPerTeam * 2)...(inexeperiencedPlayersPerTeam * 3) - 1]
+
+    
+
+    
 
  
     return (teamSharks, teamDragons, teamRaptors)
 }
 
 
+var team = sortTeams(experiencedPlayers: experiencedPlayers, inexperiencedPlayers: inexperiencedPlayers)
 
-
-
+print(team.teamSharks)
+print(team.teamDragons)
+print(team.teamRaptors)
 
 
