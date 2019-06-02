@@ -65,8 +65,8 @@ var playersByExperience = (sortByExperience(players: players))
 
 // Make arrays of experienced and inexperienced players
 
-var experiencedPlayers = playersByExperience.experienced
-var inexperiencedPlayers = playersByExperience.inexperienced
+let experiencedPlayers = playersByExperience.experienced
+let inexperiencedPlayers = playersByExperience.inexperienced
 
 
 // Function to sort players in to teams
