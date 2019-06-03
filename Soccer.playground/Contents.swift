@@ -134,16 +134,16 @@ func writeLetters(forSharks sharksLetters: [[String:String]], forDragons dragons
     var raptorsTeamLetters: [String] = []
     
     for letter in sharksLetters {
-        sharksTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Sharks on \((sharksPracticeTime)).")
+        sharksTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has their first team practice for the Sharks on \((sharksPracticeTime)).")
     }
     
     for letter in dragonsLetters{
-        dragonsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Dragons on \((dragonsPracticeTime)).")
+        dragonsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has their first team practice for the Dragons on \((dragonsPracticeTime)).")
         
     }
     
     for letter in raptorsLetters{
-        raptorsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Raptors on \((raptorsPracticeTime)).")
+        raptorsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has their first team practice for the Raptors on \((raptorsPracticeTime)).")
     }
    
     
