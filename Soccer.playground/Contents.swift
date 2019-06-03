@@ -60,7 +60,7 @@ func sortByExperience (players: [[String:String]]) -> (experienced: [[String:Str
 }
 
 
-// collection of experienced and inexperienced players
+// Collection of experienced and inexperienced players
 
 var playersByExperience = (sortByExperience(players: players))
 
@@ -113,19 +113,20 @@ for index in 0..<experiencedPlayers.count {
 return (teamSharks, teamDragons, teamRaptors)
 }
 
+// Create a constant containing all the sorted teams by experience
+let team = sortTeams(experiencedPlayers: experiencedPlayers, inexperiencedPlayers: inexperiencedPlayers)
 
-var team = sortTeams(experiencedPlayers: experiencedPlayers, inexperiencedPlayers: inexperiencedPlayers)
-
+// Create constants for each individual team
 let teamSharks = team.teamSharks
 let teamDragons = team.teamDragons
 let teamRaptors = team.teamRaptors
 
-
+// Create constants containing the teams practice date and time
 let sharksPracticeTime = "March 17th at 3pm"
 let dragonsPracticeTime = "March 17th at 1pm"
 let raptorsPracticeTime = "March 18th at 1pm"
 
-
+// A function to write the letters passing in teamSharks, teamDragons, and teamRaptors which are the teams sorted by experienced players above. Optionals are force unwrapped.
 func writeLetters(forSharks sharksLetters: [[String:String]], forDragons dragonsLetters: [[String:String]], forTeamRaptors raptorsLetters: [[String:String]]) -> (sharksTeamLetters: [String], dragonsTeamLetters: [String], raptorsTeamLetters: [String])
 {
     var sharksTeamLetters: [String] = []
@@ -133,7 +134,6 @@ func writeLetters(forSharks sharksLetters: [[String:String]], forDragons dragons
     var raptorsTeamLetters: [String] = []
     
     for letter in sharksLetters {
-        //print("Dear " + (letter["guardians"]!))
         sharksTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Sharks on \((sharksPracticeTime)).")
     }
     
@@ -151,7 +151,12 @@ return (sharksTeamLetters, dragonsTeamLetters, raptorsTeamLetters)
   
 }
 
+
+// A constant containing an array of all the letters by calling the writeLetters function
+
 let letters = writeLetters(forSharks: teamSharks, forDragons: teamDragons, forTeamRaptors: teamRaptors)
+
+// A for-loop to iterate through the letters array for each team and print the letter.
 
 for letter in letters.sharksTeamLetters{
     print(letter)
