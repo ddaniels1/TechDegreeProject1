@@ -128,18 +128,39 @@ let raptorsPracticeTime = "March 18th at 1pm"
 
 func writeLetters(forSharks sharksLetters: [[String:String]], forDragons dragonsLetters: [[String:String]], forTeamRaptors raptorsLetters: [[String:String]]) -> (sharksTeamLetters: [String], dragonsTeamLetters: [String], raptorsTeamLetters: [String])
 {
-    let sharksTeamLetters: [String] = []
-    let dragonsTeamLetters: [String] = []
-    let raptorsTeamLetters: [String] = []
+    var sharksTeamLetters: [String] = []
+    var dragonsTeamLetters: [String] = []
+    var raptorsTeamLetters: [String] = []
     
     for letter in sharksLetters {
-       
+        //print("Dear " + (letter["guardians"]!))
+        sharksTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Sharks on \((sharksPracticeTime)).")
     }
     
+    for letter in dragonsLetters{
+        dragonsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Dragons on \((dragonsPracticeTime)).")
+        
+    }
     
-    
+    for letter in raptorsLetters{
+        raptorsTeamLetters.append("Dear \((letter["guardians"]!)), \((letter["name"]!)) has practice for the Raptors on \((raptorsPracticeTime)).")
+    }
+   
     
 return (sharksTeamLetters, dragonsTeamLetters, raptorsTeamLetters)
+  
 }
 
-writeLetters(forSharks: teamSharks, forDragons: teamDragons, forTeamRaptors: teamRaptors)
+let letters = writeLetters(forSharks: teamSharks, forDragons: teamDragons, forTeamRaptors: teamRaptors)
+
+for letter in letters.sharksTeamLetters{
+    print(letter)
+}
+for letter in letters.dragonsTeamLetters{
+    print(letter)
+}
+for letter in letters.raptorsTeamLetters{
+    print(letter)
+}
+
+
