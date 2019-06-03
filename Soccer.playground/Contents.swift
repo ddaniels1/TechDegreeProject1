@@ -59,6 +59,7 @@ func sortByExperience (players: [[String:String]]) -> (experienced: [[String:Str
     return (experienced, inexperienced)
 }
 
+
 // collection of experienced and inexperienced players
 
 var playersByExperience = (sortByExperience(players: players))
@@ -70,42 +71,75 @@ let inexperiencedPlayers = playersByExperience.inexperienced
 
 
 // Function to sort players in to teams
-func sortTeams(experiencedPlayers: [[String:String]], inexperiencedPlayers: [[String:String]]) -> (teamSharks: [String : String], teamDragons: [String : String], teamRaptors: [String : String])
+func sortTeams(experiencedPlayers: [[String:String]], inexperiencedPlayers: [[String:String]]) -> (teamSharks: [[String : String]], teamDragons: [[String : String]], teamRaptors: [[String : String]])
 {
 
-    var teamDragons: [[String: String]] = []
-    var teamSharks: [[String: String]] = []
-    var teamRaptors: [[String: String]] = []
+var teamDragons: [[String: String]] = []
+var teamSharks: [[String: String]] = []
+var teamRaptors: [[String: String]] = []
 
-    for player in 0..<experiencedPlayers {
+for index in 0..<experiencedPlayers.count {
+        if index % 3 == 0 {
+        teamDragons.append(experiencedPlayers[index])
+    } else {
+        if index % 3 == 1{
+        teamSharks.append(experiencedPlayers[index])
+    } else {
+        if index % 3 == 2{
+        teamRaptors.append(experiencedPlayers[index])
+        }
+}
+}
+}
+    
+    for index in 0..<inexperiencedPlayers.count{
+        if index % 3 == 0 {
+        teamDragons.append(inexperiencedPlayers[index])
+        } else {
+        if index % 3 == 1{
+        teamSharks.append(inexperiencedPlayers[index])
+        }else{
+        if index % 3 == 2{
+        teamRaptors.append(experiencedPlayers[index])
+            }}
+            
+        }
         
     }
-    // calculates the number of experienced players that should be on each team
-    
-    //let experiencedPlayersPerTeam = experiencedPlayers.count/3
-    // calculates the number of inexperienced players that should be on each team
-    //let inexeperiencedPlayersPerTeam = inexperiencedPlayers.count/3
-
-
-    // distributes the experienced and inexperienced players evenly to each team
-
-   // let teamSharks = (experiencedPlayers[0...experiencedPlayersPerTeam - 1]) + (inexperiencedPlayers[0...inexeperiencedPlayersPerTeam-1])
-    //let teamDragons = (experiencedPlayers[experiencedPlayersPerTeam...(experiencedPlayersPerTeam * 2) - 1]) + (inexperiencedPlayers[inexeperiencedPlayersPerTeam...(inexeperiencedPlayersPerTeam * 2) - 1])
-    //let teamRaptors = experiencedPlayers[(experiencedPlayersPerTeam * 2)...(experiencedPlayersPerTeam * 3) - 1] + inexperiencedPlayers[(inexeperiencedPlayersPerTeam * 2)...(inexeperiencedPlayersPerTeam * 3) - 1]
-
-    
-
+        
     
 
  
-    return (teamSharks, teamDragons, teamRaptors)
+return (teamSharks, teamDragons, teamRaptors)
 }
 
 
 var team = sortTeams(experiencedPlayers: experiencedPlayers, inexperiencedPlayers: inexperiencedPlayers)
 
-print(team.teamSharks)
-print(team.teamDragons)
-print(team.teamRaptors)
+let teamSharks = team.teamSharks
+let teamDragons = team.teamDragons
+let teamRaptors = team.teamRaptors
 
 
+let sharksPracticeTime = "March 17th at 3pm"
+let dragonsPracticeTime = "March 17th at 1pm"
+let raptorsPracticeTime = "March 18th at 1pm"
+
+
+func writeLetters(forSharks sharksLetters: [[String:String]], forDragons dragonsLetters: [[String:String]], forTeamRaptors raptorsLetters: [[String:String]]) -> (sharksTeamLetters: [String], dragonsTeamLetters: [String], raptorsTeamLetters: [String])
+{
+    let sharksTeamLetters: [String] = []
+    let dragonsTeamLetters: [String] = []
+    let raptorsTeamLetters: [String] = []
+    
+    for letter in sharksLetters {
+       
+    }
+    
+    
+    
+    
+return (sharksTeamLetters, dragonsTeamLetters, raptorsTeamLetters)
+}
+
+writeLetters(forSharks: teamSharks, forDragons: teamDragons, forTeamRaptors: teamRaptors)
